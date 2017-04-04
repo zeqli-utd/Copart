@@ -1,0 +1,29 @@
+package com.*
+import com.*
+
+global AppropriateFacility f = new AppropriateFacility();
+global ZipCodeLookup z = new ZipCodeLookup();
+
+rule "Customer Preference"
+    when
+        zipcode = f.findPrefer(customer id);
+        zipcode != null
+    then
+        System.out.println(z.convertZipcode(zipCode));
+end
+
+rule "Specified Facility"
+    when
+        isExistFacility(zipCode) == true
+    then
+        System.out.println(z.convertZipcode(zipCode));
+end
+
+rule "Closest Facility"
+    when
+        Message( status == Message.GOODBYE, myMessage : message )
+        List<String> zipcodes = getClosestZip
+        zipcodes != null
+    then
+        System.out.println(z.convertZipcode(zipCodes.get(0)));
+end
